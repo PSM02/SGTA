@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pago con tarjeta de crédito</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		form {
+			max-width: 400px;
+			margin: 0 auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 8px;
+		}
+
+		input[type="text"],
+		input[type="number"],
+		select {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-bottom: 16px;
+			font-size: 16px;
+		}
+
+		input[type="submit"] {
+			background-color: #f44336;
+			border: none;
+			color: white;
+			cursor: pointer;
+			padding: 12px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			transition-duration: 0.4s;
+			border-radius: 4px;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #d32f2f;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<label for="name">Nombre en la tarjeta:</label>
+		<input type="text" id="name" name="name" required>
+
+		<label for="number">Número de tarjeta:</label>
+		<input type="text" id="number" name="number" required>
+
+		<label for="expiry">Fecha de caducidad:</label>
+		<select id="expiry" name="expiry_month" required>
+			<option value="">Mes</option>
+			<option value="01">Enero</option>
+			<option value="02">Febrero</option>
+			<option value="03">Marzo</option>
+			<option value="04">Abril</option>
+			<option value="05">Mayo</option>
+			<option value="06">Junio</option>
+			<option value="07">Julio</option>
+			<option value="08">Agosto</option>
+			<option value="09">Septiembre</option>
+			<option value="10">Octubre</option>
+			<option value="11">Noviembre</option>
+			<option value="12">Diciembre</option>
+		</select>
+		<input type="number" id="expiry_year" name="expiry_year" placeholder="Año" min="2023" max="2030" required>
+
+		<label for="cvv">CVV:</label>
+		<input type="number" id="cvv" name="cvv" min="100" max="999" required>
+
+		<input type="submit" value="Pagar">
+	</form>
+</body>
+</html>

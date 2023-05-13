@@ -1,0 +1,151 @@
+/* Estilos generales */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+button, .button {
+	background-color: #f44336;
+	border: none;
+	color: white;
+	cursor: pointer;
+	padding: 12px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	border-radius: 4px;
+}
+
+button:hover, .button:hover {
+	background-color: #d32f2f;
+}
+
+/* Estilos para la cabecera */
+header {
+	background-color: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	padding: 16px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+	display: inline-block;
+	margin-right: 16px;
+}
+
+nav a {
+	font-size: 18px;
+}
+
+/* Estilos para la sección principal */
+#hero {
+	background-image: url('hero-bg.jpg');
+	background-position: center;
+	background-size: cover;
+	color: #fff;
+	padding: 128px 16px;
+	text-align: center;
+}
+
+#hero h1 {
+	font-size: 48px;
+	margin-top: 0;
+}
+
+#hero p {
+	font-size: 24px;
+	margin-bottom: 32px;
+}
+
+/* Estilos para la sección "Cómo funciona" */
+#how-it-works {
+	background-color: #f7f7f7;
+	padding: 64px 16px;
+	text-align: center;
+}
+
+#how-it-works h2 {
+	font-size: 36px;
+	margin-top: 0;
+}
+
+#how-it-works ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#how-it-works li {
+	margin-bottom: 32px;
+}
+
+#how-it-works h3 {
+	font-size: 24px;
+	margin-top: 0;
+}
+
+/* Estilos para la sección "Restaurantes Destacados" */
+#featured-restaurants {
+	background-color: #fff;
+	padding: 64px 16px;
+	text-align: center;
+}
+
+#featured-restaurants h2 {
+	font-size: 36px;
+	margin-top: 0;
+}
+
+#featured-restaurants ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#featured-restaurants li {
+	margin: 16px;
+	flex-basis: 300px;
+}
+
+#featured-restaurants img {
+	max-width: 100%;
+	height: auto;
+}
+
+#featured-restaurants h3 {
+	font-size: 24px;
+	margin-top: 0;
+}
+
+#featured-restaurants p {
+	margin-bottom: 16px;
+}
+/* Estilos para el pie de página */
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 16px;
+	text-align: center;
+}
