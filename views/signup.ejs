@@ -90,7 +90,7 @@
 </head>
 
 <body>
-  <form action="/login" method="post">
+  <form action="/signup" method="post">
     <h2>Login</h2>
     <% if (error) {%>
       <li style="color: crimson;">
@@ -106,7 +106,11 @@
           <input type="password" name="password" id="password" placeholder="Sartu Pasahitza">
         </div>
         <p></p>
-        <input type="submit" value="Log In">
+        <div class="input-field">
+          <input type="password" name="password2" id="password2" placeholder="Errepikatu Pasahitza">
+        </div>
+        <p></p>
+        <input type="submit" value="Sign Up">
   </form>
 </body>
 

@@ -11,13 +11,14 @@ router.get('/', function(req, res, next) {
     html.login_logout = "<a href='/logout'>Log Out</a>";
   } else {
     html.login_logout = "<a href='/login'>Log In</a>";
+    html.login_logout += "&nbsp; &nbsp; <a href='/signup'>Sign Up</a>";
   }
   console.log(html.login_logout);
   res.render('Menu' , { html: html, uname:uname, error: '' });
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Express', error: "" });
+  res.render('login', { error: "" });
 });
 
 router.post("/login", function(req, res, next) {
@@ -32,7 +33,6 @@ router.post("/login", function(req, res, next) {
     } else {
       if(user) {
         req.session.user = user.Name;
-        html.login_logout = "<a href='/logout'>Log Out</a>"
         res.redirect("/");
       } else {
         error = "Erabiltzaile edo pasahitz okerrak!";
@@ -44,7 +44,42 @@ router.post("/login", function(req, res, next) {
 });
 
 router.get('/signup', function(req, res, next) {
-  res.render('signup', { title: 'Express', error: "" });
+  res.render('signup', { error: "" });
+});
+
+router.post("/signup", function(req, res, next) {
+  var username = req.body.username;
+  var password = req.body.password;
+  var password2 = req.body.password2;
+  var error = "";
+  if(password != password2) {
+    error = "Pasahitzak ez dira berdinak";
+    res.render('signup', { error: error });
+  } else {
+    db.Users.findOne({Name: username}, function(err, user) {
+      if(err) {
+        console.log(err);
+        error = "Datu basean errorea";
+        res.render('signup', { error: error });
+      } else {
+        if(user) {
+          error = "Erabiltzaile izena jadanik existitzen da";
+          res.render('signup', { error: error });
+        } else {
+          db.Users.insert({Name: username, Password: password}, function(err, user) {
+            if(err) {
+              console.log(err);
+              error = "Datu basean errorea";
+              res.render('signup', { error: error });
+            } else {
+              req.session.user = user.Name;
+              res.redirect("/");
+            }
+          });
+        }
+      }
+    });
+  }
 });
 
 router.get('/logout', function(req, res, next) {

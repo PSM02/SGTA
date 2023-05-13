@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Pago con tarjeta de crédito</title>
 	<style>
@@ -52,38 +53,73 @@
 		input[type="submit"]:hover {
 			background-color: #d32f2f;
 		}
+
+		.expiry-container {
+			display: inline-block;
+		}
+
+		.expiry-container select {
+			width: auto;
+			padding: 5px;
+			font-size: 16px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			background-color: white;
+			color: #333;
+		}
+
+		.expiry-container span {
+			padding: 0 10px;
+			font-size: 16px;
+			color: #333;
+		}
 	</style>
 </head>
-<body>
+
+<body style="padding-top: 0.9cm;">
 	<form>
-		<label for="name">Nombre en la tarjeta:</label>
-		<input type="text" id="name" name="name" required>
+		<label for="number">Txartela Zenbakia:</label>
+		<input type="text" id="number" name="number" pattern="\d{4} \d{4} \d{4} \d{4}" required>
 
-		<label for="number">Número de tarjeta:</label>
-		<input type="text" id="number" name="number" required>
-
-		<label for="expiry">Fecha de caducidad:</label>
-		<select id="expiry" name="expiry_month" required>
-			<option value="">Mes</option>
-			<option value="01">Enero</option>
-			<option value="02">Febrero</option>
-			<option value="03">Marzo</option>
-			<option value="04">Abril</option>
-			<option value="05">Mayo</option>
-			<option value="06">Junio</option>
-			<option value="07">Julio</option>
-			<option value="08">Agosto</option>
-			<option value="09">Septiembre</option>
-			<option value="10">Octubre</option>
-			<option value="11">Noviembre</option>
-			<option value="12">Diciembre</option>
-		</select>
-		<input type="number" id="expiry_year" name="expiry_year" placeholder="Año" min="2023" max="2030" required>
+		<label for="expiry">Iraungitze Data:</label>
+		<div class="expiry-container">
+			<select id="expiry_month" name="expiry_month" required>
+				<option value="">MM</option>
+				<option value="01">01</option>
+				<option value="02">02</option>
+				<option value="03">03</option>
+				<option value="04">04</option>
+				<option value="05">05</option>
+				<option value="06">06</option>
+				<option value="07">07</option>
+				<option value="08">08</option>
+				<option value="09">09</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+			</select>
+			<span>/</span>
+			<select id="expiry_year" name="expiry_year" required>
+				<option value="">YY</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+			</select>
+		</div>
 
 		<label for="cvv">CVV:</label>
-		<input type="number" id="cvv" name="cvv" min="100" max="999" required>
+		<input type="text" id="CVV" name="CVV" pattern='\d{3}' required>
 
 		<input type="submit" value="Pagar">
 	</form>
 </body>
+
 </html>

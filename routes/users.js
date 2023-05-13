@@ -40,7 +40,13 @@ router.post('/jarraitu', function(req, res, next) {
 
 router.get('/ordaindu', function(req, res, next) {
     html.login_logout = "<a href='/logout'>Log Out</a>";
-    res.render('Ordainketa');
+    res.render('Ordainketa' , { html: html, uname:`Kaixo ${req.session.user}!`, error: ''});
+});
+
+router.post('/ordaindu', function(req, res, next) {
+    html.login_logout = "<a href='/logout'>Log Out</a>";
+    html.prezioa = req.body;
+    res.render('Ordainketa' , { html: html, uname:`Kaixo ${req.session.user}!`, error: ''});
 });
 
 module.exports = router;

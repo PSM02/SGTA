@@ -138,15 +138,13 @@
 				<% } %>
 		</section>
 	</main>
-	<form action="/eskaera/ordaindu" method="get">
-		<submit class="button" id="Ordaindu" style="margin-left: 26.69cm; margin-bottom: 1cm;">
-			<% var total = 0; %>
-			<% html.foods.forEach( food => { %>
-			<% total += food.prezioa * food.kopurua %>
-			<% }) %>
-			Ordaindu: <%=total%>€
-		</submit>
-	</form>
+	<submit class="button" id="Ordaindu" style="margin-left: 26.69cm; margin-bottom: 1cm;">
+		<% var total = 0; %>
+		<% html.foods.forEach( food => { %>
+		<% total += food.prezioa * food.kopurua %>
+		<% }) %>
+		Ordaindu: <%=total%>€
+	</submit>
 
 	<footer>
 		<p>© 2023 Puxika. Eskubide guztiak erreserbatuta.</p>
@@ -154,12 +152,25 @@
 </body>
 
 <script>
-	//poner el precio total en el boton
-	function prezioaJarri() {
-		var total = 0;
-		console.log(total);
-		document.getElementById("Ordaindu").innerHTML = "Ordaindu:€";
-	}
+	document.getElementById("Ordaindu").addEventListener("click", function() {
+		//get the total price
+		var total = parseFloat(document.getElementById("Ordaindu").innerHTML.split(" ")[1].split("€")[0]);
+		var prezioa = {prezioa: total};
+		fetch("/eskaera/ordaindu", {
+				method: "POST",
+				enctype: "multipart/form-data",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(prezioa)
+			}).then(response => {
+				if (response.ok) {
+					window.location.href = '/eskaera/ordaindu';
+				} else {
+					throw new Error('Error');
+				}
+			}).catch(error => console.error(error))
+	});
 </script>
 
 </html>
