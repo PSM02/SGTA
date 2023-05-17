@@ -80,7 +80,7 @@
 </head>
 
 <body style="padding-top: 0.9cm;">
-	<form>
+	<form action="./ordainketa" method="post">
 		<label for="number">Txartela Zenbakia:</label>
 		<input type="text" id="number" name="number" pattern="\d{4} \d{4} \d{4} \d{4}" required>
 
@@ -118,7 +118,16 @@
 		<label for="cvv">CVV:</label>
 		<input type="text" id="CVV" name="CVV" pattern='\d{3}' required>
 
-		<input type="submit" value="Pagar">
+		<% if (error) {%>
+			<li style="color: crimson;">
+				<%=error%>
+			</li>
+			<p></p>
+		<% } %>
+
+		<input type="submit" value="Ordaindu">
+
+		<input type="hidden" name="prezioa" value="<%= html.prezioa %>">
 	</form>
 </body>
 

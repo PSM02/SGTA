@@ -13,8 +13,36 @@
 		}
 
 		a {
+			display: inline-block;
+			padding: 5px 10px;
+			border: 2px solid #333;
+			background-color: #333;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		a:hover:not(#eskatu) {
+			background-color: #fff;
+			color: #333;
+		}
+
+		a {
+			font-size: 10px;
+			font-family: Arial, sans-serif;
 			color: #333;
 			text-decoration: none;
+		}
+
+		a:hover:not(#eskatu) {
+			color: #f00;
+		}
+
+		a {
+			font-size: 10px;
+			font-family: Arial, sans-serif;
+			color: lightgray;
+			text-decoration: none;
+			transition: all 0.2s ease-in-out;
 		}
 
 		button,
@@ -117,7 +145,7 @@
 				<li><a href="/">Hasiera</a></li>
 				<!-- poner opcion de login en el lado contrario -->
 				<li style="float: right; padding-right: 10px;"><%-html.login_logout%></li>
-				<li style="float: right; padding-right: 10px;">
+				<li style="float: right; font-size: 20px; padding-right: 10px; padding-top: 8px;">
 					<%=uname%>
 				</li>
 			</ul>
@@ -137,7 +165,7 @@
 							<%=janaria.Prezioa%> €
 						</p>
 						<button id="<%=janaria.Izena%>-">-</button>
-						<a style="font-size: 150%;" id="<%=janaria.Izena%>-value">0</a>
+						<label style="font-size: 150%;" id="<%=janaria.Izena%>-value">0</label>
 						<button id="<%=janaria.Izena%>+">+</button>
 					</div>
 				</div>
@@ -173,7 +201,7 @@
 	// Jarraitu botoia
 	document.getElementById("Jarraitu").onclick = function () {
 		var janariak = [];
-		var values = document.getElementsByTagName("a");
+		var values = document.getElementsByTagName("label");
 		for (var i = 0; i < values.length; i++) {
 			var value = parseInt(values[i].innerHTML);
 			if (value > 0) {

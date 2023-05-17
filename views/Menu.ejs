@@ -147,6 +147,18 @@
 	</style>
 </head>
 
+<script>
+	function helbideBerriaBidali(){
+		var helbideBerria = document.getElementById("helbideBerria").value;
+		var pattern = /^[A-Za-z\s]+,\s\d+,\s\d+[A-Za-z]?\.[A-Za-z]?$/;
+		if (pattern.test(helbideBerria)){
+			alert("Helbide berria ondo gorde da");
+		} else {
+			alert("Helbidea ez da zuzena");
+		}
+	}
+</script>
+
 <body>
 	<header>
 		<nav>
@@ -168,6 +180,11 @@
 			<p style="-webkit-text-stroke: 2px black; font-size: 250%; font-weight: bold;">Zure gogoko janaria eskatu
 				eta minutu gutxitan han izango duzu</p>
 			<a href="/eskaera" id="eskatu" class="button" >Orain Eskatu</a>
+			<% if (uname) { %>
+				<p></p>
+				<input type="text" id="helbideBerria" style="width: 30%; height: 30px; text-align: center;" name="helbideBerria" placeholder="Eskaera hau beste helbide batera bidali nahi duzu?">
+				<button id="Aldatu" onclick="helbideBerriaBidali()" class="button">Aldatu</button>
+			<%}%>
 		</section>
 
 		<section id="how-it-works">

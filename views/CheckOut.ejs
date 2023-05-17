@@ -15,8 +15,36 @@
 		}
 
 		a {
+			display: inline-block;
+			padding: 5px 10px;
+			border: 2px solid #333;
+			background-color: #333;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		a:hover:not(#eskatu) {
+			background-color: #fff;
+			color: #333;
+		}
+
+		a {
+			font-size: 10px;
+			font-family: Arial, sans-serif;
 			color: #333;
 			text-decoration: none;
+		}
+
+		a:hover:not(#eskatu) {
+			color: #f00;
+		}
+
+		a {
+			font-size: 10px;
+			font-family: Arial, sans-serif;
+			color: lightgray;
+			text-decoration: none;
+			transition: all 0.2s ease-in-out;
 		}
 
 		button,
@@ -112,7 +140,7 @@
 				<li><a href="/">Hasiera</a></li>
 				<!-- poner opcion de login en el lado contrario -->
 				<li style="float: right; padding-right: 10px;"><%-html.login_logout%></li>
-				<li style="float: right; padding-right: 10px;">
+				<li style="float: right; padding-right: 10px; font-size: 20px; padding-top: 8px;">
 					<%=uname%>
 				</li>
 			</ul>

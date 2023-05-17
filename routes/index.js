@@ -51,6 +51,7 @@ router.post("/signup", function(req, res, next) {
   var username = req.body.username;
   var password = req.body.password;
   var password2 = req.body.password2;
+  var helb = req.body.helbidea;
   var error = "";
   if(password != password2) {
     error = "Pasahitzak ez dira berdinak";
@@ -66,7 +67,7 @@ router.post("/signup", function(req, res, next) {
           error = "Erabiltzaile izena jadanik existitzen da";
           res.render('signup', { error: error });
         } else {
-          db.Users.insert({Name: username, Password: password}, function(err, user) {
+          db.Users.insert({Name: username, Password: password, Helbidea: helb}, function(err, user) {
             if(err) {
               console.log(err);
               error = "Datu basean errorea";

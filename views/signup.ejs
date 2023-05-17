@@ -91,7 +91,7 @@
 
 <body>
   <form action="/signup" method="post">
-    <h2>Login</h2>
+    <h2>Sign Up</h2>
     <% if (error) {%>
       <li style="color: crimson;">
         <%=error%>
@@ -99,15 +99,19 @@
       <% } %>
         <p></p>
         <div class="input-field">
-          <input type="text" name="username" id="username" placeholder="Sartu Erabiltzaile Izena">
+          <input type="text" name="username" id="username" placeholder="Sartu Erabiltzaile Izena" required>
         </div>
         <p></p>
         <div class="input-field">
-          <input type="password" name="password" id="password" placeholder="Sartu Pasahitza">
+          <input type="password" name="password" id="password" placeholder="Sartu Pasahitza" required>
         </div>
         <p></p>
         <div class="input-field">
-          <input type="password" name="password2" id="password2" placeholder="Errepikatu Pasahitza">
+          <input type="password" name="password2" id="password2" placeholder="Errepikatu Pasahitza" required>
+        </div>
+        <p></p>
+        <div class="input-field">
+          <input type="text" name="helbidea" id="helbidea" placeholder="Sartu Helbidea" pattern="[A-Za-z\s]+,\s\d+,\s\d+[A-Za-z]?\.[A-Za-z]?" required>
         </div>
         <p></p>
         <input type="submit" value="Sign Up">
