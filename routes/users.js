@@ -12,7 +12,6 @@ router.get('*', function(req, res, next) {
     }
 });
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
     html.login_logout = "<a href='/logout'>Log Out</a>";
     db.Foods.find(function(err, foods) {
